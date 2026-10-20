@@ -58,14 +58,6 @@ as the first dataset specifically designed for the long-horizon vision-language 
 
 *Source: Table 2 of the [technical report](https://www.sensenova.ai/gpt-6/assets/docs/has_gpt-6_achieved_embodied_intelligence.pdf#page=38), reproduced with its original headers and values. “Ours” in the table refers to the report authors' GPT-6-Astra setup.*
 
-**LHPR-VLN results from Table 2 (success rate, %):**
-
-| Published SOTA | Published agentic SOTA | GPT-6-Astra: up to 1× | GPT-6-Astra: up to 10×, cutoff at 10× | GPT-6-Astra: up to 10×, cutoff at 1× |
-| --- | --- | --- | --- | --- |
-| FantasyVLN: 2.4 | Claude Code Opus-5: 5.3 | 21.1 | **28.9** | 25.4 |
-
-**Evaluation context.** The report's LHPR-VLN evaluation uses a target-visibility-filtered subset of **114 episodes across 25 unseen scenes**, with two to four ordered goals per episode (Appendix C.7). Full-sequence success requires completing every goal in order. The 1× and 10× action budgets are 500 and 5,000 steps. In Table 2, the standalone 1× run is separate from the 10× run; its 21.1% result should be distinguished from the 25.4% measured at the 1× cutoff of the 10× run. Published baselines use the standard budget. The table's * marks a result using a VLA, ‡ marks a zero-shot result without training data, and dashes indicate unreported results.
-
 Explore the [LHPR-VLN dataset](#lhpr-vln-dataset), [NavGen pipeline](#navgen-pipeline), and [benchmark](#benchmark) to build and evaluate agents for long-horizon navigation.
 
 ## MMSP2025-Challenge
