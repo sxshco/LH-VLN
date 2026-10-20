@@ -34,6 +34,40 @@
 as the first dataset specifically designed for the long-horizon vision-language navigation task. Furthermore, we propose Independent Success Rate (ISR), Conditional Success Rate (CSR), and CSR weight by Ground Truth (CGT) metrics, to provide fine-grained assessments of task completion. To improve model adaptability in complex tasks, we propose a novel Multi-Granularity Dynamic Memory (MGDM) module that integrates short-term memory blurring with long-term memory retrieval to enable flexible navigation in dynamic environments. Our platform, benchmark and method supply LH-VLN with a robust data generation pipeline, comprehensive model evaluation dataset, reasonable metrics, and a novel VLN model, establishing a foundational framework for advancing LH-VLN. </i></p>
 </div>
 
+## LHPR-VLN in the GPT-6-Astra Embodied Intelligence Study
+
+**Long-horizon navigation remains an open challenge for frontier embodied agents.** The technical report [*Has GPT-6-Astra Achieved Embodied Intelligence?*](https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence) includes **our LHPR-VLN benchmark** in its evaluation across 12 embodied AI benchmarks. With training-set in-context learning (ICL) and an interaction budget of up to **10×**, GPT-6-Astra achieves **28.9% full-sequence success** on LHPR-VLN, the lowest extended-budget success rate reported in the study. This highlights the continuing value of LHPR-VLN for studying long-term planning, progress tracking, and consistent execution across successive navigation goals.
+
+### Figure 1: Performance across 12 embodied AI benchmarks
+
+<p align="center">
+  <a href="static/images/gpt6-astra-embodied-figure1.png">
+    <img src="static/images/gpt6-astra-embodied-figure1.png" width="100%" alt="Figure 1 from the GPT-6-Astra embodied intelligence report: results across 12 benchmarks, with LHPR-VLN reaching 28.9% success at up to 10 times the interaction budget." />
+  </a>
+</p>
+
+*Source: Figure 1, Joint Research Team, [Has GPT-6-Astra Achieved Embodied Intelligence?](https://www.sensenova.ai/gpt-6/assets/docs/has_gpt-6_achieved_embodied_intelligence.pdf#page=1). The study permits training-set ICL and up to 10× the action-step budget. RoboLab uses no ICL; BEHAVIOR is evaluated only at 1×. Published-baseline cutoff: October 12, 2026.*
+
+### Table 2: Benchmark-level success rates
+
+<p align="center">
+  <a href="static/images/gpt6-astra-embodied-table2.png">
+    <img src="static/images/gpt6-astra-embodied-table2.png" width="100%" alt="Table 2 from the report, showing published baselines and GPT-6-Astra success rates for all 12 benchmarks. LHPR-VLN: FantasyVLN 2.4%, Claude Code Opus-5 5.3%, GPT-6-Astra up to 1 times 21.1%, up to 10 times with cutoff at 10 times 28.9%, and cutoff at 1 times 25.4%." />
+  </a>
+</p>
+
+*Source: Table 2 of the [technical report](https://www.sensenova.ai/gpt-6/assets/docs/has_gpt-6_achieved_embodied_intelligence.pdf#page=38), reproduced with its original headers and values. “Ours” in the table refers to the report authors' GPT-6-Astra setup.*
+
+**LHPR-VLN results from Table 2 (success rate, %):**
+
+| Published SOTA | Published agentic SOTA | GPT-6-Astra: up to 1× | GPT-6-Astra: up to 10×, cutoff at 10× | GPT-6-Astra: up to 10×, cutoff at 1× |
+| --- | --- | --- | --- | --- |
+| FantasyVLN: 2.4 | Claude Code Opus-5: 5.3 | 21.1 | **28.9** | 25.4 |
+
+**Evaluation context.** The report's LHPR-VLN evaluation uses a target-visibility-filtered subset of **114 episodes across 25 unseen scenes**, with two to four ordered goals per episode (Appendix C.7). Full-sequence success requires completing every goal in order. The 1× and 10× action budgets are 500 and 5,000 steps. In Table 2, the standalone 1× run is separate from the 10× run; its 21.1% result should be distinguished from the 25.4% measured at the 1× cutoff of the 10× run. Published baselines use the standard budget. The table's * marks a result using a VLA, ‡ marks a zero-shot result without training data, and dashes indicate unreported results.
+
+Explore the [LHPR-VLN dataset](#lhpr-vln-dataset), [NavGen pipeline](#navgen-pipeline), and [benchmark](#benchmark) to build and evaluate agents for long-horizon navigation.
+
 ## MMSP2025-Challenge
 
 The 1st Long-Horizon Vision-Language Navigation Challenge based on the “Embodied AI Challenge” track of the IEEE 27th International Workshop on Multimedia Signal Processing (MMSP 2025) is opened! Please go to the challenge [page](https://hcplab-sysu.github.io/LH-VLN/contest/) for more information. 
